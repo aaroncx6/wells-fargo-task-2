@@ -13,9 +13,9 @@ public class Client {
     @GeneratedValue()   //randomly generates the key
     private long client_ID; 
 
-    @OneToOne           //entity relationship
-    @JoinColumn(name = "portfolio_id", nullable = false)
-    private Portfolio portfolio_ID;
+    // @OneToOne           //entity relationship
+    // @JoinColumn(name = "portfolio_id", nullable = false)
+    // private Portfolio portfolio_ID;
 
     @Column(nullable = false)
     private String client_firstName;
@@ -33,7 +33,6 @@ public class Client {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "advisor_id", nullable = false)
     private Advisor advisor;
 
     protected Client() {
@@ -50,6 +49,14 @@ public class Client {
 
     public long getClientID() {
         return client_ID;
+    }
+
+    public Advisor getAdvisor() {
+        return advisor;
+    }
+
+    public void setAdvisor(Advisor advisor) {
+        this.advisor = advisor;
     }
 
     public String getFirstName() {
@@ -76,12 +83,8 @@ public class Client {
         this.address = address;
     }
 
-    public Portfolio getPortfolio_ID() {
-        return portfolio_ID
-    }
-
-    public Advisor getAdvisor_ID() {
-        return advisor
-    }
+    // public Portfolio getPortfolio_ID() {
+    //     return portfolio_ID
+    // }
 
 }

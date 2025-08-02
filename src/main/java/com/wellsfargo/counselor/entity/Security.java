@@ -14,7 +14,6 @@ public class Security {
     private long security_order_id;
 
     @ManyToOne
-    @JoinColumn(name = "security", nullable = false)
     private Portfolio portfolio;
 
     @Column(nullable = false)
@@ -27,49 +26,57 @@ public class Security {
     private String security_purchasedate;
     
     @Column(nullable = false)
-    private double security_purchaseprice;
+    private float security_purchaseprice;
 
     @Column(nullable = false)
-    private double security_quantity;
+    private float security_quantity;
 
     protected Security() {
 
     }
 
-    public Security(Portfolio portfolio, String security_name, String security_category, String security_purchasedate, double security_purchaseprice, double security_quantity ) {
-        this.portfolio = portfolio
-        this.security_name = security_name
-        this.security_category = security_category
-        this.security_purchasedate = security_purchasedate
-        this.security_purchaseprice = security_purchaseprice
-        this.security_quantity = security_quantity
+    public Security(Portfolio portfolio, String security_name, String security_category, String security_purchasedate, float security_purchaseprice, float security_quantity ) {
+        this.portfolio = portfolio;
+        this.security_name = security_name;
+        this.security_category = security_category;
+        this.security_purchasedate = security_purchasedate;
+        this.security_purchaseprice = security_purchaseprice;
+        this.security_quantity = security_quantity;
         
     }
 
     public long getPortfolio_ID() {
-        return portfolio
+        return portfolio;
     }
-    public Security security() {
-        return security_order_id
+    public long security() {
+        return security_order_id;
     }
 
-    public long getSecurityName() {
-        return security_name
+    public String getSecurityName() {
+        return security_name;
+    }
+
+    public void setStringName() {
+        this.security_name = security_name;
     }
 
     public String getSecurityCategory() {
         return security_category;
     }
 
+    public void setSecurityCategory() {
+        this.security_category = security_category;
+    }
+
     public String getSecurityPurchaseDate(){
-        return security_purchasedate
+        return security_purchasedate;
     }
     
     public double getSecurityPurchasePrice() {
-        return security_purchaseprice
+        return security_purchaseprice;
     }
 
     public double getSecurityQuantity() {
-        return security_quantity
+        return security_quantity;
     }
 }

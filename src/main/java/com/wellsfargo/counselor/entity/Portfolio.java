@@ -13,22 +13,40 @@ public class Portfolio {
     @GeneratedValue()
     private long portfolio_ID;
 
-    @OneToMany
-    @JoinColumn(name = "security", nullable = false)
-    private Security security;
+    @ManyToOne
+    private Client client;
+
+    @Column(nullable = false)
+    private String creationDate
 
     protected Portfolio() {
 
     }
 
-    public Portfolio(Security security) {
-        this.security = security
+    public Portfolio(Client, client, String creationDate) {
+        this.client = client;
+        this.creationDate = creationDate;
     }
 
     public long getPortfolio_ID() {
         return portfolio_ID
     }
-    public Security security() {
-        return security
+
+    public Client getClient() {
+        return client;
     }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
 }
