@@ -49,7 +49,7 @@ public class Client {
     }
 
     public long getClientID() {
-        return client_ID
+        return client_ID;
     }
 
     public String getFirstName() {
